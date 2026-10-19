@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: market_summary_clean
+    description: "Clean analytical model containing one-minute market summary data."
+
+    columns:
+      - name: window_start
+        description: "Start time of the one-minute aggregation window."
+        tests:
+          - not_null
+
+      - name: window_end
+        description: "End time of the one-minute aggregation window."
+        tests:
+          - not_null
+
+      - name: symbol
+        description: "Financial instrument symbol."
+        tests:
+          - not_null
+
+      - name: avg_price
+        description: "Average price during the aggregation window."
+        tests:
+          - not_null
+
+      - name: min_price
+        description: "Minimum price during the aggregation window."
+
+      - name: max_price
+        description: "Maximum price during the aggregation window."
+
+      - name: price_range
+        description: "Difference between the maximum and minimum price during the window."
+        tests:
+          - not_null
+
+      - name: total_volume
+        description: "Total traded volume during the aggregation window."
+
+      - name: tick_count
+        description: "Number of market ticks in the aggregation window."
+
+      - name: avg_volume_per_tick
+        description: "Average traded volume per market tick."
+        tests:
+          - not_null
